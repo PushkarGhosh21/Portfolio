@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushkar Ghosh | Software Engineer</title>
+    <meta name="description" content="Portfolio of Pushkar Ghosh - Software Engineer specializing in AI, NLP, and Full Stack Development.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Design System --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-color: #2563eb;
+            --accent-light: #eff6ff;
+            --border-color: #e2e8f0;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section { padding: 100px 0; border-bottom: 1px solid var(--border-color); background: white; }
+        
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+        h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; display: flex; align-items: center; }
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 28px;
+            background: var(--accent-color);
+            margin-right: 16px;
+            border-radius: 4px;
+        }
+        h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        
+        p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 1.05rem; }
+
+        /* --- Hero Section --- */
+        header {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-item:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0 8px;
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--text-primary); color: white; }
+        .btn-primary:hover { background: var(--accent-color); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .btn-outline { background: white; border: 2px solid var(--border-color); color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--text-primary); }
+
+        /* --- Featured Spotlight (The "FAANG" Hook) --- */
+        .spotlight-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-hover);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .spotlight-label {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .system-diagram-placeholder {
+            background: #f8fafc;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            height: 100%;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 20px;
+        }
+        .system-diagram-placeholder i { font-size: 3rem; margin-bottom: 10px; color: #cbd5e1; }
+        .diagram-text { font-size: 0.85rem; font-weight: 500; }
+
+        /* --- Experience --- */
+        .timeline-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--border-color);
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .role { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+        .company { color: var(--accent-color); font-weight: 600; }
+        .date { font-family: monospace; color: var(--text-secondary); background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; }
+        
+        .job-desc li { margin-bottom: 8px; color: var(--text-secondary); }
+
+        /* --- Project Grid --- */
+        .section-header-group { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent-color); }
+
+        .tech-stack { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .project-links { margin-top: auto; padding-top: 20px; border-top: 1px solid #f1f5f9; display: flex; gap: 16px; }
+        .link-item { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
+        .link-item:hover { color: var(--accent-color); }
+
+        /* --- Skills Section --- */
+        .skills-section { background: #0f172a; color: white; border-bottom: none; }
+        .skills-section h2, .skills-section p { color: white; }
+        .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 32px; }
+        .skill-item {
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Footer --- */
+        footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .spotlight-card { grid-template-columns: 1fr; }
+            .system-diagram-placeholder { min-height: 150px; margin-top: 24px; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Pushkar Ghosh</h1>
+            <h2 class="hero-subtitle" style="display: block; border: none; margin-bottom: 24px;">
+                Software Engineer | AI & Cloud Specialist
+            </h2>
+            <p style="max-width: 600px; margin: 0 auto 32px auto;">
+                Specializing in building scalable Generative AI systems (RAG), Computer Vision pipelines, and industrial predictive models. Proven track record of reducing operational costs through cloud optimization.
+            </p>
+
+            <div class="contact-bar">
+                <a href="mailto:pushkar2015.ghosh@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> pushkar2015.ghosh@gmail.com
+                </a>
+                <a href="https://github.com/PushkarGhosh21" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/pushkar-ghosh-28926a262" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+
+            <div>
+                <a href="#spotlight" class="btn btn-primary">View Featured Work</a>
+                <a href="resume.pdf" target="_blank" class="btn btn-outline">Download CV</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="skills-section">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <h2>Technical Arsenal</h2>
+                <div style="display: flex; gap: 20px;">
+                    <div style="text-align: right;">
+                        <span style="font-size: 2rem; font-weight: 800; color: #60a5fa;">9.15</span><br>
+                        <span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">CGPA</span>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 2rem; font-weight: 800; color: #60a5fa;">85%</span><br>
+                        <span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Model Accuracy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-grid">
+                <div class="skill-item">Generative AI (RAG)</div>
+                <div class="skill-item">Computer Vision (CNN)</div>
+                <div class="skill-item">Python & NLP</div>
+                <div class="skill-item">Google Cloud (GCP)</div>
+                <div class="skill-item">AWS Infrastructure</div>
+                <div class="skill-item">SQL & Vector DBs</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="spotlight">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">Featured Case Study</h2>
+            
+            <div class="spotlight-card">
+                <div>
+                    <span class="spotlight-label">Natural Language Processing</span>
+                    <h3 style="font-size: 2rem; margin-bottom: 16px;">Amazon Music Sentiment Analyzer</h3>
+                    <p>
+                        <strong>The Challenge:</strong> Processing over 5,000+ unstructured customer reviews manually to derive product insights is inefficient and error-prone.
+                    </p>
+                    <p>
+                        <strong>The Solution:</strong> Engineered an automated end-to-end NLP pipeline. The system utilizes text preprocessing (tokenization, stop-word removal) and machine learning models (Naive Bayes, Logistic Regression) to classify sentiment with <strong>85% accuracy</strong>.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Google Cloud (GCP)</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PushkarGhosh21/Sentiment-Analysis-using-NLP.git" target="_blank" class="link-item">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="system-diagram-placeholder">
+                    <i class="fas fa-project-diagram"></i>
+                    <div class="diagram-text">
+                        <strong>NLP Pipeline Architecture</strong><br>
+                        Raw Text Ingestion ➔ Tokenization<br>
+                        ⬇<br>
+                        TF-IDF Vectorization ➔ Model Prediction<br>
+                        ⬇<br>
+                        Sentiment Class (Pos/Neg/Neu)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header-group">
+                <h2>Engineering Projects</h2>
+                <a href="https://github.com/PushkarGhosh21?tab=repositories" target="_blank" style="color: var(--accent-color); font-weight: 600;">View all repos <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="grid-2">
+                
+                <div class="project-card">
+                    <h3>Secure Facial Recognition</h3>
+                    <p>Built an offline biometric authentication system using OpenCV and dlib. Designed for secure access control environments with 92% matching accuracy and sub-250ms detection time.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Biometrics</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PushkarGhosh21/Face-Recognition-.git" target="_blank" class="link-item"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Enterprise Policy RAG System</h3>
+                    <p>Architected a Retrieval-Augmented Generation (RAG) system to query corporate policy documents. Utilized LangChain and Vector Databases to provide accurate, context-aware answers from PDF knowledge bases.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Generative AI</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Vector DB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PushkarGhosh21/Enterprise-Policy-RAG.git" target="_blank" class="link-item"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>High-Performance Image Search</h3>
+                    <p>Engineered a low-latency image retrieval system capable of sub-second search results (avg. 750ms). Optimized API calls to Unsplash using caching mechanisms for high-performance querying.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">API Integration</span>
+                        <span class="tech-tag">Performance Optimization</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/PushkarGhosh21/Image-Search-Engine.git" target="_blank" class="link-item"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Suraksha Setu App</h3>
+                    <p>Developed a community safety platform designed to bridge the gap between citizens and emergency services. Features real-time alerts and community reporting tools.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Full Stack Development</span>
+                        <span class="tech-tag">App Development</span>
+                        <span class="tech-tag">Community Safety</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Anirban3030/Suraksha-Setu-Your-Community-Safety-App.git" target="_blank" class="link-item"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="color: var(--text-secondary); margin-bottom: 20px;">Other Noteworthy Projects</h3>
+                <div class="grid-3">
+                    
+                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <strong>Coal Grade Predictor</strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">Industrial ML | Predictive Analytics</span>
+                        <br>
+                        <a href="https://github.com/PushkarGhosh21/Coal-Grade-Predictor-.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                    </div>
+
+                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <strong>Smart Waste CNN</strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">Computer Vision | Deep Learning</span>
+                        <br>
+                        <a href="https://github.com/PushkarGhosh21/Smart-Waste-Classification-using-CNN.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                    </div>
+
+                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <strong>E-Commerce Clone</strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">Full Stack Web | Frontend & Backend</span>
+                        <br>
+                        <a href="https://github.com/PushkarGhosh21/E-commerce-Clone.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                    </div>
+
+                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <strong>Simulation of ANN</strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">Neural Networks | Group Research</span>
+                        <br>
+                        <a href="https://github.com/PushkarGhosh21/Simulation-of-ANN.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                    </div>
+
+                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
+                        <strong>IMS (Inventory System)</strong><br>
+                        <span style="font-size: 0.85rem; color: #64748b;">System Design | Management Tool</span>
+                        <br>
+                        <a href="https://github.com/PushkarGhosh21/IMS.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="role">System Department Intern</span>
+                        <span class="company"> | Coal India Limited (Maharatna PSU)</span>
+                    </div>
+                    <span class="date">Dec 2025 - Present</span>
+                </div>
+                <ul class="job-desc">
+                    <li>Engaged in enterprise-level system operations, optimizing workflows within the System Department.</li>
+                    <li>Analyzing large-scale IT infrastructure to improve data management efficiency and security compliance.</li>
+                    <li>Collaborating with senior engineers to maintain critical business continuity systems.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-header">
+                    <div>
+                        <span class="role">Cloud Technical Analyst Intern</span>
+                        <span class="company"> | Mekhline Infotech</span>
+                    </div>
+                    <span class="date">Jun 2025 - Sep 2025</span>
+                </div>
+                <ul class="job-desc">
+                    <li>Architected and deployed cloud solutions on AWS, focusing on reducing Total Cost of Ownership (TCO) for clients.</li>
+                    <li>Implemented security protocols and managed server maintenance, ensuring high availability and data protection.</li>
+                    <li>Recognized for "commendable technical acumen" and a proactive approach to solving real-world cloud infrastructure problems.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pushkar Ghosh. Designed for Performance.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

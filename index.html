@@ -6,40 +6,48 @@
     <title>Pushkar Ghosh | Software Engineer</title>
     <meta name="description" content="Portfolio of Pushkar Ghosh - Software Engineer specializing in AI, RAG Systems, and Full Stack Development.">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232563eb' rx='20'/><text x='50' y='65' font-family='Arial' font-size='50' fill='white' text-anchor='middle' font-weight='bold'>PG</text></svg>">
 
     <meta property="og:title" content="Pushkar Ghosh | Software Engineer">
     <meta property="og:description" content="Portfolio of Pushkar Ghosh - Specializing in AI, RAG Systems, and Full Stack Development.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pushkarghosh21.github.io/portfolio/">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- Design System --- */
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
+            --bg-color: #fdfdfd;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
             --accent-color: #2563eb;
-            --accent-light: #eff6ff;
-            --border-color: #e2e8f0;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --accent-hover: #1d4ed8;
+            --border-color: #e5e7eb;
+            --font-main: 'Inter', sans-serif;
+            /* Modern Diffused Shadow */
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; } /* Smooth scrolling enabled */
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-main);
             color: var(--text-primary);
             line-height: 1.6;
             background-color: #fafafa;
+            -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
+        a { text-decoration: none; color: inherit; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         ul { list-style: none; }
 
         .container {
@@ -50,8 +58,8 @@
 
         section { padding: 100px 0; border-bottom: 1px solid var(--border-color); background: white; }
         
-        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
-        h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; display: flex; align-items: center; }
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; color: #111827; }
+        h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; display: flex; align-items: center; letter-spacing: -0.02em; }
         h2::before {
             content: "";
             display: inline-block;
@@ -61,9 +69,23 @@
             margin-right: 16px;
             border-radius: 4px;
         }
-        h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: #1f2937; }
         
         p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 1.05rem; }
+
+        /* --- Animation: Fade Up --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-intro {
+            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0; /* Starts hidden */
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
 
         /* --- Hero Section --- */
         header {
@@ -72,7 +94,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 70%);
+            background: radial-gradient(circle at 50% 0%, #eff6ff 0%, #ffffff 60%);
         }
 
         .hero-subtitle {
@@ -80,13 +102,14 @@
             color: var(--text-secondary);
             font-weight: 500;
             margin-bottom: 32px;
+            letter-spacing: -0.01em;
         }
 
         .contact-bar {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             margin-bottom: 40px;
         }
 
@@ -94,15 +117,20 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: white;
             border: 1px solid var(--border-color);
             border-radius: 50px;
             font-size: 0.95rem;
             color: var(--text-secondary);
+            font-weight: 500;
             box-shadow: var(--shadow-sm);
         }
-        .contact-item:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        .contact-item:hover { 
+            border-color: var(--accent-color); 
+            color: var(--accent-color); 
+            transform: translateY(-2px);
+        }
 
         .btn {
             display: inline-block;
@@ -111,33 +139,43 @@
             font-weight: 600;
             margin: 0 8px;
             cursor: pointer;
+            letter-spacing: 0.01em;
         }
         .btn-primary { background: var(--text-primary); color: white; }
         .btn-primary:hover { background: var(--accent-color); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .btn-primary:active { transform: scale(0.98); }
+        
         .btn-outline { background: white; border: 2px solid var(--border-color); color: var(--text-primary); }
-        .btn-outline:hover { border-color: var(--text-primary); }
+        .btn-outline:hover { border-color: var(--text-primary); background: #f9fafb; }
+        .btn-outline:active { transform: scale(0.98); }
 
-        /* --- Featured Spotlight (The "FAANG" Hook) --- */
+        /* --- Featured Spotlight --- */
         .spotlight-card {
             background: white;
             border: 1px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 20px; /* Softer corners */
             padding: 40px;
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-card);
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .spotlight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: #cbd5e1;
         }
 
         .spotlight-label {
             display: inline-block;
-            background: #e0e7ff;
+            background: #eff6ff;
             color: var(--accent-color);
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
             letter-spacing: 1px;
@@ -145,8 +183,8 @@
 
         .system-diagram-placeholder {
             background: #f8fafc;
-            border: 2px dashed var(--border-color);
-            border-radius: 12px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
             height: 100%;
             min-height: 250px;
             display: flex;
@@ -155,17 +193,17 @@
             justify-content: center;
             text-align: center;
             color: var(--text-secondary);
-            padding: 20px;
+            padding: 24px;
         }
-        .system-diagram-placeholder i { font-size: 3rem; margin-bottom: 10px; color: #cbd5e1; }
-        .diagram-text { font-size: 0.85rem; font-weight: 500; }
+        .system-diagram-placeholder i { font-size: 3rem; margin-bottom: 16px; color: #94a3b8; }
+        .diagram-text { font-size: 0.85rem; font-weight: 600; color: #64748b; line-height: 1.8; }
 
         /* --- Experience --- */
         .timeline-item {
             position: relative;
-            padding-left: 24px;
-            margin-bottom: 40px;
-            border-left: 2px solid var(--border-color);
+            padding-left: 28px;
+            margin-bottom: 48px;
+            border-left: 2px solid #e2e8f0;
         }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item::before {
@@ -175,7 +213,8 @@
             top: 6px;
             width: 10px;
             height: 10px;
-            background: var(--accent-color);
+            background: white;
+            border: 2px solid var(--accent-color);
             border-radius: 50%;
         }
         
@@ -186,11 +225,19 @@
             margin-bottom: 12px;
             flex-wrap: wrap;
         }
-        .role { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+        .role { font-size: 1.25rem; font-weight: 700; color: #111827; }
         .company { color: var(--accent-color); font-weight: 600; }
-        .date { font-family: monospace; color: var(--text-secondary); background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; }
+        .date { 
+            font-family: monospace; 
+            color: #64748b; 
+            background: #f1f5f9; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.85rem; 
+            font-weight: 500;
+        }
         
-        .job-desc li { margin-bottom: 8px; color: var(--text-secondary); }
+        .job-desc li { margin-bottom: 10px; color: #4b5563; }
 
         /* --- Project Grid --- */
         .section-header-group { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
@@ -202,25 +249,43 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 32px;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow-sm);
         }
-        .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent-color); }
+        .project-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: var(--shadow-hover); 
+            border-color: var(--accent-color); 
+        }
 
-        .tech-stack { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-stack { margin: 20px 0; display: flex; flex-wrap: wrap; gap: 8px; }
         .tech-tag {
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--text-secondary);
+            color: #475569;
             background: #f1f5f9;
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
         }
 
-        .project-links { margin-top: auto; padding-top: 20px; border-top: 1px solid #f1f5f9; display: flex; gap: 16px; }
-        .link-item { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
+        .project-links { 
+            margin-top: auto; 
+            padding-top: 24px; 
+            border-top: 1px solid #f1f5f9; 
+            display: flex; 
+            gap: 16px; 
+        }
+        .link-item { 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            color: #334155; 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+        }
         .link-item:hover { color: var(--accent-color); }
 
         /* --- Skills Section --- */
@@ -228,43 +293,46 @@
         .skills-section h2, .skills-section p { color: white; }
         .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 32px; }
         .skill-item {
-            background: rgba(255,255,255,0.1);
-            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            padding: 16px;
             text-align: center;
             border-radius: 8px;
             font-weight: 500;
             border: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s;
         }
+        .skill-item:hover { background: rgba(255,255,255,0.1); }
 
-        /* --- 3. Scroll to Top Button --- */
+        /* --- Scroll to Top Button --- */
         .scroll-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: var(--accent-color);
             color: white;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            opacity: 0.8;
-            transition: 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+            opacity: 0.9;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 999;
         }
-        .scroll-top:hover { opacity: 1; transform: translateY(-3px); }
+        .scroll-top:hover { opacity: 1; transform: translateY(-5px) scale(1.05); }
 
         /* --- Footer --- */
         footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
+        footer p { font-size: 0.9rem; margin: 0; }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
             .spotlight-card { grid-template-columns: 1fr; }
             .system-diagram-placeholder { min-height: 150px; margin-top: 24px; }
             h1 { font-size: 2.5rem; }
-            .scroll-top { bottom: 20px; right: 20px; }
+            .scroll-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -272,15 +340,15 @@
 
     <header>
         <div class="container">
-            <h1>Pushkar Ghosh</h1>
-            <h2 class="hero-subtitle" style="display: block; border: none; margin-bottom: 24px;">
+            <h1 class="animate-intro">Pushkar Ghosh</h1>
+            <h2 class="hero-subtitle animate-intro delay-1" style="display: block; border: none; margin-bottom: 24px;">
                 Software Engineer | AI & Cloud Specialist
             </h2>
-            <p style="max-width: 600px; margin: 0 auto 32px auto;">
+            <p class="animate-intro delay-2" style="max-width: 600px; margin: 0 auto 32px auto;">
                 Specializing in building scalable Generative AI systems (RAG), Computer Vision pipelines, and industrial predictive models. Proven track record of reducing operational costs through cloud optimization.
             </p>
 
-            <div class="contact-bar">
+            <div class="contact-bar animate-intro delay-2">
                 <a href="mailto:pushkar2015.ghosh@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i> pushkar2015.ghosh@gmail.com
                 </a>
@@ -292,7 +360,7 @@
                 </a>
             </div>
 
-            <div>
+            <div class="animate-intro delay-3">
                 <a href="#spotlight" class="btn btn-primary">View Featured Work</a>
                 <a href="resume.pdf" target="_blank" class="btn btn-outline">Download CV</a>
             </div>
@@ -301,16 +369,16 @@
 
     <section class="skills-section">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <h2>Technical Arsenal</h2>
-                <div style="display: flex; gap: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                <h2 style="margin-bottom: 0;">Technical Arsenal</h2>
+                <div style="display: flex; gap: 30px;">
                     <div style="text-align: right;">
-                        <span style="font-size: 2rem; font-weight: 800; color: #60a5fa;">9.15</span><br>
-                        <span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">CGPA</span>
+                        <span style="font-size: 2.2rem; font-weight: 800; color: #60a5fa; line-height: 1;">9.15</span><br>
+                        <span style="font-size: 0.75rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">CGPA</span>
                     </div>
                     <div style="text-align: right;">
-                        <span style="font-size: 2rem; font-weight: 800; color: #60a5fa;">85%</span><br>
-                        <span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Model Accuracy</span>
+                        <span style="font-size: 2.2rem; font-weight: 800; color: #60a5fa; line-height: 1;">85%</span><br>
+                        <span style="font-size: 0.75rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Model Accuracy</span>
                     </div>
                 </div>
             </div>
@@ -328,12 +396,12 @@
 
     <section id="spotlight">
         <div class="container">
-            <h2 style="margin-bottom: 20px;">Featured Case Study</h2>
+            <h2 style="margin-bottom: 24px;">Featured Case Study</h2>
             
             <div class="spotlight-card">
                 <div>
                     <span class="spotlight-label">Natural Language Processing</span>
-                    <h3 style="font-size: 2rem; margin-bottom: 16px;">Amazon Music Sentiment Analyzer</h3>
+                    <h3 style="font-size: 2rem; margin-bottom: 16px; line-height: 1.2;">Amazon Music Sentiment Analyzer</h3>
                     <p>
                         <strong>The Challenge:</strong> Processing over 5,000+ unstructured customer reviews manually to derive product insights is inefficient and error-prone.
                     </p>
@@ -356,7 +424,7 @@
                 <div class="system-diagram-placeholder">
                     <i class="fas fa-project-diagram"></i>
                     <div class="diagram-text">
-                        <strong>NLP Pipeline Architecture</strong><br>
+                        <strong style="color: #334155; font-size: 1rem;">NLP Pipeline Architecture</strong><br>
                         Raw Text Ingestion ➔ Tokenization<br>
                         ⬇<br>
                         TF-IDF Vectorization ➔ Model Prediction<br>
@@ -372,7 +440,7 @@
         <div class="container">
             <div class="section-header-group">
                 <h2>Engineering Projects</h2>
-                <a href="https://github.com/PushkarGhosh21?tab=repositories" target="_blank" style="color: var(--accent-color); font-weight: 600;">View all repos <i class="fas fa-arrow-right"></i></a>
+                <a href="https://github.com/PushkarGhosh21?tab=repositories" target="_blank" class="link-item" style="color: var(--accent-color);">View all repos <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="grid-2">
@@ -431,43 +499,38 @@
 
             </div>
             
-            <div style="margin-top: 50px;">
-                <h3 style="color: var(--text-secondary); margin-bottom: 20px;">Other Noteworthy Projects</h3>
+            <div style="margin-top: 60px;">
+                <h3 style="color: var(--text-secondary); margin-bottom: 24px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Other Noteworthy Projects</h3>
                 <div class="grid-3">
                     
-                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
-                        <strong>Coal Grade Predictor</strong><br>
+                    <div class="project-card" style="padding: 24px;">
+                        <h4 style="margin-bottom: 5px; font-weight: 700;">Coal Grade Predictor</h4>
                         <span style="font-size: 0.85rem; color: #64748b;">Industrial ML | Predictive Analytics</span>
-                        <br>
-                        <a href="https://github.com/PushkarGhosh21/Coal-Grade-Predictor-.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                        <a href="https://github.com/PushkarGhosh21/Coal-Grade-Predictor-.git" target="_blank" class="link-item" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-color);">View Repo <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                     </div>
 
-                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
-                        <strong>Smart Waste CNN</strong><br>
+                    <div class="project-card" style="padding: 24px;">
+                        <h4 style="margin-bottom: 5px; font-weight: 700;">Smart Waste CNN</h4>
                         <span style="font-size: 0.85rem; color: #64748b;">Computer Vision | Deep Learning</span>
-                        <br>
-                        <a href="https://github.com/PushkarGhosh21/Smart-Waste-Classification-using-CNN.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                        <a href="https://github.com/PushkarGhosh21/Smart-Waste-Classification-using-CNN.git" target="_blank" class="link-item" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-color);">View Repo <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                     </div>
 
-                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
-                        <strong>E-Commerce Clone</strong><br>
+                    <div class="project-card" style="padding: 24px;">
+                        <h4 style="margin-bottom: 5px; font-weight: 700;">E-Commerce Clone</h4>
                         <span style="font-size: 0.85rem; color: #64748b;">Full Stack Web | Frontend & Backend</span>
-                        <br>
-                        <a href="https://github.com/PushkarGhosh21/E-commerce-Clone.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                        <a href="https://github.com/PushkarGhosh21/E-commerce-Clone.git" target="_blank" class="link-item" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-color);">View Repo <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                     </div>
 
-                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
-                        <strong>Simulation of ANN</strong><br>
+                    <div class="project-card" style="padding: 24px;">
+                        <h4 style="margin-bottom: 5px; font-weight: 700;">Simulation of ANN</h4>
                         <span style="font-size: 0.85rem; color: #64748b;">Neural Networks | Group Research</span>
-                        <br>
-                        <a href="https://github.com/PushkarGhosh21/Simulation-of-ANN.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                        <a href="https://github.com/PushkarGhosh21/Simulation-of-ANN.git" target="_blank" class="link-item" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-color);">View Repo <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                     </div>
 
-                    <div style="padding: 20px; background: #f8fafc; border-radius: 8px;">
-                        <strong>IMS (Inventory System)</strong><br>
+                    <div class="project-card" style="padding: 24px;">
+                        <h4 style="margin-bottom: 5px; font-weight: 700;">IMS (Inventory System)</h4>
                         <span style="font-size: 0.85rem; color: #64748b;">System Design | Management Tool</span>
-                        <br>
-                        <a href="https://github.com/PushkarGhosh21/IMS.git" target="_blank" style="font-size: 0.85rem; color: var(--accent-color); margin-top: 5px; display:inline-block;">View Repo</a>
+                        <a href="https://github.com/PushkarGhosh21/IMS.git" target="_blank" class="link-item" style="margin-top: 10px; font-size: 0.85rem; color: var(--accent-color);">View Repo <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                     </div>
 
                 </div>

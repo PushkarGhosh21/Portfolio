@@ -147,7 +147,7 @@
         .btn-outline:hover { border-color: var(--text-primary); background: #f9fafb; }
         .btn-outline:active { transform: scale(0.98); }
 
-        /* --- Featured Spotlight --- */
+        /* --- Spotlight Card --- */
         .spotlight-card {
             background: white;
             border: 1px solid var(--border-color);
@@ -165,7 +165,6 @@
             box-shadow: var(--shadow-hover);
             border-color: #cbd5e1;
         }
-
         .spotlight-label {
             display: inline-block;
             background: #eff6ff;
@@ -178,7 +177,6 @@
             margin-bottom: 16px;
             letter-spacing: 1px;
         }
-
         .system-diagram-placeholder {
             background: #f8fafc;
             border: 2px dashed #cbd5e1;
@@ -195,47 +193,6 @@
         }
         .system-diagram-placeholder i { font-size: 3rem; margin-bottom: 16px; color: #94a3b8; }
         .diagram-text { font-size: 0.85rem; font-weight: 600; color: #64748b; line-height: 1.8; }
-
-        /* --- Experience --- */
-        .timeline-item {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 48px;
-            border-left: 2px solid #e2e8f0;
-        }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-        }
-        
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-        .role { font-size: 1.25rem; font-weight: 700; color: #111827; }
-        .company { color: var(--accent-color); font-weight: 600; }
-        .date { 
-            font-family: monospace; 
-            color: #64748b; 
-            background: #f1f5f9; 
-            padding: 4px 10px; 
-            border-radius: 6px; 
-            font-size: 0.85rem; 
-            font-weight: 500;
-        }
-        
-        .job-desc li { margin-bottom: 10px; color: #4b5563; }
 
         /* --- Project Grid --- */
         .section-header-group { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
@@ -273,7 +230,32 @@
         .link-item { font-size: 0.9rem; font-weight: 600; color: #334155; display: flex; align-items: center; gap: 6px; }
         .link-item:hover { color: var(--accent-color); }
 
-        /* --- Skills Section --- */
+        /* --- Experience --- */
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 48px;
+            border-left: 2px solid #e2e8f0;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+        }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; }
+        .role { font-size: 1.25rem; font-weight: 700; color: #111827; }
+        .company { color: var(--accent-color); font-weight: 600; }
+        .date { font-family: monospace; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+        .job-desc li { margin-bottom: 10px; color: #4b5563; }
+
+        /* --- Skills & Endorsements --- */
         .skills-section { background: #0f172a; color: white; border-bottom: none; }
         .skills-section h2, .skills-section p { color: white; }
         .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 32px; }
@@ -288,7 +270,6 @@
         }
         .skill-item:hover { background: rgba(255,255,255,0.1); }
 
-        /* --- Testimonial Section --- */
         .quote-card {
             background: #f8fafc;
             border-left: 4px solid var(--accent-color);
@@ -298,41 +279,22 @@
             color: #334155;
             position: relative;
         }
-        .quote-card i {
-            color: #cbd5e1;
-            font-size: 2rem;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            opacity: 0.5;
-        }
+        .quote-card i { color: #cbd5e1; font-size: 2rem; position: absolute; top: 20px; left: 20px; opacity: 0.5; }
         .quote-text { margin-left: 40px; margin-bottom: 20px; font-size: 1.1rem; }
         .quote-author { margin-left: 40px; font-weight: 700; color: #111827; font-style: normal; }
         .quote-role { font-size: 0.9rem; color: var(--accent-color); }
 
-        /* --- Scroll to Top Button --- */
+        /* --- Footer & Scroll --- */
+        footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
         .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--accent-color); color: white;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
-            opacity: 0.9;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 999;
+            opacity: 0.9; transition: all 0.3s; z-index: 999;
         }
         .scroll-top:hover { opacity: 1; transform: translateY(-5px) scale(1.05); }
-
-        /* --- Footer --- */
-        footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
-        footer p { font-size: 0.9rem; margin: 0; }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
@@ -368,7 +330,7 @@
             </div>
 
             <div class="animate-intro delay-3">
-                <a href="#spotlight" class="btn btn-primary">View Featured Work</a>
+                <a href="#research" class="btn btn-primary">View Research</a>
                 <a href="resume.pdf" target="_blank" class="btn btn-outline">Download CV</a>
             </div>
         </div>
@@ -397,6 +359,42 @@
                 <div class="skill-item">Google Cloud (GCP)</div>
                 <div class="skill-item">AWS Infrastructure</div>
                 <div class="skill-item">SQL & Vector DBs</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2 style="margin-bottom: 30px;">Research & Publications</h2>
+            
+            <div class="grid-2">
+                <div class="project-card" style="border-top: 4px solid var(--accent-color);">
+                    <div style="margin-bottom: 12px;">
+                        <span class="spotlight-label" style="background: #ecfccb; color: #4d7c0f;">Springer Conference</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem;">Agentic AI-Driven Fiscal Policy Optimization</h3>
+                    <p style="font-size: 0.95rem; color: #334155; margin-bottom: 15px;">
+                        <strong>Abstract:</strong> Proposed a novel framework utilizing Agentic AI to simulate and optimize fiscal policies. The model integrates macroeconomic structural indicators to predict policy outcomes with higher accuracy than traditional econometric models.
+                    </p>
+                    <div style="margin-top: auto;">
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 5px;"><strong>Venue:</strong> RAAISA 2025 (Advances in AI & Smart Applications)</p>
+                        <p style="font-size: 0.85rem; color: #64748b;"><strong>Publisher:</strong> Springer (To be Published)</p>
+                    </div>
+                </div>
+
+                <div class="project-card" style="border-top: 4px solid #10b981;">
+                    <div style="margin-bottom: 12px;">
+                        <span class="spotlight-label" style="background: #e0f2fe; color: #0284c7;">Book Chapter</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem;">AI Based Vehicle: The Next Generation Automobile</h3>
+                    <p style="font-size: 0.95rem; color: #334155; margin-bottom: 15px;">
+                        <strong>Synopsis:</strong> A comprehensive technical chapter exploring the integration of Level-5 autonomous systems in next-gen vehicles. Discusses sensor fusion, neural network processing for real-time decision making, and ethical AI in automotive safety.
+                    </p>
+                    <div style="margin-top: auto;">
+                        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 5px;"><strong>Book Title:</strong> Technology for Tomorrow</p>
+                        <p style="font-size: 0.85rem; color: #64748b;"><strong>Status:</strong> Published</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

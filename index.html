@@ -278,11 +278,12 @@
             font-style: italic;
             color: #334155;
             position: relative;
+            height: 100%; /* Ensure equal height in grid */
         }
         .quote-card i { color: #cbd5e1; font-size: 2rem; position: absolute; top: 20px; left: 20px; opacity: 0.5; }
-        .quote-text { margin-left: 40px; margin-bottom: 20px; font-size: 1.1rem; }
+        .quote-text { margin-left: 40px; margin-bottom: 20px; font-size: 1.05rem; }
         .quote-author { margin-left: 40px; font-weight: 700; color: #111827; font-style: normal; }
-        .quote-role { font-size: 0.9rem; color: var(--accent-color); }
+        .quote-role { font-size: 0.85rem; color: var(--accent-color); margin-left: 40px; }
 
         /* --- Footer & Scroll --- */
         footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
@@ -596,14 +597,27 @@
     <section id="endorsements" style="background-color: #f8fafc; border-bottom: none;">
         <div class="container">
             <h2>Professional Endorsements</h2>
-            <div class="quote-card">
-                <i class="fas fa-quote-left"></i>
-                <p class="quote-text">
-                    "During this period, he demonstrated **commendable technical acumen**, a strong understanding of cloud technologies, and a **proactive approach** to learning and contributing to real-world projects. His performance and dedication have been truly appreciated by the team."
-                </p>
-                <div class="quote-author">Mrs. Moumita Maitra</div>
-                <div class="quote-role">Director, Mekhline Infotech Pvt. Ltd.</div>
+            
+            <div class="grid-2">
+                <div class="quote-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="quote-text">
+                        "During the course of his training, we have found Mr. Pushkar Ghosh to be an **intelligent, hardworking and diligent student**. He has exhibited his commitment, dedication and potential and we wish his success in all his future endeavors."
+                    </p>
+                    <div class="quote-author">Mr. O.P. Mishra</div>
+                    <div class="quote-role">ED (CD)/HOD (HRD), Coal India Limited</div>
+                </div>
+
+                <div class="quote-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="quote-text">
+                        "During this period, he demonstrated **commendable technical acumen**, a strong understanding of cloud technologies, and a **proactive approach** to learning and contributing to real-world projects. His performance and dedication have been truly appreciated by the team."
+                    </p>
+                    <div class="quote-author">Mrs. Moumita Maitra</div>
+                    <div class="quote-role">Director, Mekhline Infotech Pvt. Ltd.</div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -617,4 +631,3 @@
 
 </body>
 </html>
-

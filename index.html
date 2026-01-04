@@ -255,7 +255,7 @@
         .date { font-family: monospace; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
         .job-desc li { margin-bottom: 10px; color: #4b5563; }
 
-        /* --- Skills & Endorsements --- */
+        /* --- Skills --- */
         .skills-section { background: #0f172a; color: white; border-bottom: none; }
         .skills-section h2, .skills-section p { color: white; }
         .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 32px; }
@@ -270,20 +270,69 @@
         }
         .skill-item:hover { background: rgba(255,255,255,0.1); }
 
+        /* --- Custom Slider Section --- */
+        .slider-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            animation: fadeEffect 0.6s ease-in-out;
+        }
+        .slide.active { display: block; }
+        
+        @keyframes fadeEffect {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .quote-card {
             background: #f8fafc;
             border-left: 4px solid var(--accent-color);
-            padding: 30px;
-            border-radius: 0 12px 12px 0;
+            padding: 40px 30px;
+            border-radius: 12px;
             font-style: italic;
             color: #334155;
             position: relative;
-            height: 100%; /* Ensure equal height in grid */
+            box-shadow: var(--shadow-card);
         }
-        .quote-card i { color: #cbd5e1; font-size: 2rem; position: absolute; top: 20px; left: 20px; opacity: 0.5; }
-        .quote-text { margin-left: 40px; margin-bottom: 20px; font-size: 1.05rem; }
-        .quote-author { margin-left: 40px; font-weight: 700; color: #111827; font-style: normal; }
-        .quote-role { font-size: 0.85rem; color: var(--accent-color); margin-left: 40px; }
+        .quote-card i { color: #cbd5e1; font-size: 2.5rem; position: absolute; top: 20px; left: 20px; opacity: 0.5; }
+        .quote-text { margin-left: 50px; margin-bottom: 24px; font-size: 1.15rem; line-height: 1.7; }
+        .quote-author { margin-left: 50px; font-weight: 700; color: #111827; font-style: normal; font-size: 1.1rem; }
+        .quote-role { font-size: 0.9rem; color: var(--accent-color); margin-left: 50px; font-style: normal; }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .slider-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .slider-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: var(--shadow-hover);
+        }
 
         /* --- Footer & Scroll --- */
         footer { padding: 40px 0; text-align: center; color: var(--text-secondary); background: white; border-top: 1px solid var(--border-color); }
@@ -303,6 +352,8 @@
             .system-diagram-placeholder { min-height: 150px; margin-top: 24px; }
             h1 { font-size: 2.5rem; }
             .scroll-top { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+            .quote-text { margin-left: 0; margin-top: 40px; } /* Adjust for mobile */
+            .quote-author, .quote-role { margin-left: 0; }
         }
     </style>
 </head>
@@ -598,24 +649,39 @@
         <div class="container">
             <h2>Professional Endorsements</h2>
             
-            <div class="grid-2">
-                <div class="quote-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="quote-text">
-                        "During the course of his training, we have found Mr. Pushkar Ghosh to be an intelligent, hardworking and diligent student. He has exhibited his commitment, dedication and potential and we wish his success in all his future endeavors."
-                    </p>
-                    <div class="quote-author">Mr. O.P. Mishra</div>
-                    <div class="quote-role">ED (CD)/HOD (HRD), Coal India Limited</div>
+            <div class="slider-wrapper">
+                
+                <div class="slide active">
+                    <div class="quote-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="quote-text">
+                            "During the course of his training, we have found Mr. Pushkar Ghosh to be an **intelligent, hardworking and diligent student**. He has exhibited his commitment, dedication and potential and we wish his success in all his future endeavors."
+                        </p>
+                        <div class="quote-author">Mr. O.P. Mishra</div>
+                        <div class="quote-role">ED (CD)/HOD (HRD), Coal India Limited</div>
+                    </div>
                 </div>
 
-                <div class="quote-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="quote-text">
-                        "During this period, he demonstrated commendable technical acumen, a strong understanding of cloud technologies, and a proactive approach to learning and contributing to real-world projects. His performance and dedication have been truly appreciated by the team."
-                    </p>
-                    <div class="quote-author">Mrs. Moumita Maitra</div>
-                    <div class="quote-role">Director, Mekhline Infotech Pvt. Ltd.</div>
+                <div class="slide">
+                    <div class="quote-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p class="quote-text">
+                            "During this period, he demonstrated **commendable technical acumen**, a strong understanding of cloud technologies, and a **proactive approach** to learning and contributing to real-world projects. His performance and dedication have been truly appreciated by the team."
+                        </p>
+                        <div class="quote-author">Mrs. Moumita Maitra</div>
+                        <div class="quote-role">Director, Mekhline Infotech Pvt. Ltd.</div>
+                    </div>
                 </div>
+
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-btn" onclick="plusSlides(-1)" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn" onclick="plusSlides(1)" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
         </div>
@@ -629,6 +695,27 @@
 
     <a href="#" class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
 
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; 
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex-1].style.display = "block"; 
+            slides[slideIndex-1].classList.add("active");
+        }
+    </script>
+
 </body>
 </html>
-
